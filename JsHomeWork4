@@ -1,0 +1,39 @@
+// Функція для генерації випадкового числа в діапазоні [min, max]
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Основна функція
+function checkProbabilityTheory(count) {
+    let evenNumber = 0; // парні
+    let notEvenNumber = 0;  // непарні
+    for (let i = 0; i < count; i++) {
+        const number = getRandomNumber(100, 1000); // задаю діапазон
+        
+        if (number % 2 === 0) {
+            evenNumber++;
+        } else {
+            notEvenNumber++;
+        }
+    }
+
+    // Відсотки
+    const evenPercentage = ((evenNumber / count) * 100).toFixed(0); // до цілого числа
+    const notEvenPercentage = ((notEvenNumber / count) * 100).toFixed(0); // до цілого числа
+
+    // Вивід результатів
+    console.log(`Кількість чисел: ${count}`);
+    console.log(`Парних чисел: ${evenNumber} (${evenPercentage}%)`);
+    console.log(`Непарних чисел: ${notEvenNumber} (${notEvenPercentage}%)`);
+    
+    // Повертаю результати як об'єкт
+    return {
+        evenNumber,
+        notEvenNumber,
+        evenPercentage,
+        notEvenPercentage
+    };
+}
+
+// Викликаю функцію з тестовим значенням
+checkProbabilityTheory(1000);
