@@ -1,0 +1,7 @@
+const text = "Wonderful Happiness Joyful Time Task Apple"; //який саме текст потрібно перевірити
+
+const regex = /\b[^Aa]{6,}\b/g; // регулярний вираз, який знайде послідовність з шести або більше символів, які не містять літери «А» (великої або малої)
+
+const matches = text.match(regex); //пошук відповідностей згідно з регулярним виразом
+
+console.log(matches); //результат
