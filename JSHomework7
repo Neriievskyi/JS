@@ -5,3 +5,44 @@ const regex = /\b[^Aa]{6,}\b/g; // регулярний вираз, який з�
 const matches = text.match(regex); //пошук відповідностей згідно з регулярним виразом
 
 console.log(matches); //результат
+
+
+
+
+//Завдання 2: Параноя
+
+
+var arr = [
+    {
+        userName: "Test",
+        lastName: "Test",
+        email: "test.test@gmail.com"
+    },
+    {
+        userName: "Dmitro",
+        lastName: "Porohov",
+        email: "dmitro.porohov@yahoo.com"
+    },
+    {
+        userName: "Andrii",
+        lastName: "",
+        email: "andrii@mail.ru" // Нам такі не підходять
+    },
+];
+
+function getTrustedEmails(data) {
+    var trustedEmails = [];
+    var regex = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@(gmail\.com|yahoo\.com)$/;
+
+    for (var i = 0; i < data.length; i++) {
+        var email = data[i].email; // Отримую email із об'єкта
+        if (regex.test(email)) { // Перевірка email за допомогою регулярного виразу
+            trustedEmails.push(email); // Додаю до масиву довірених
+        }
+    }
+
+    return trustedEmails;
+}
+
+var result = getTrustedEmails(arr);
+console.log(result);//результат
